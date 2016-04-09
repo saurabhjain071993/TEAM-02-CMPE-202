@@ -18,3 +18,8 @@ Following are the XP values and Design Patterns which each team member holds.
 	XP Value : Communication
 
 	Designing Pattern : Chain Of Responsibility
+
+3. Ankil Shah
+	XP Value : Respect
+
+	Designing Pattern : Decorator and/or Chain Of Responsibility
