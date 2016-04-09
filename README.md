@@ -6,3 +6,7 @@ Following are the XP values and Design Patterns which each team member holds.
 2. Bhavin Agrawal 
 	XP Value : Courage
 	Designing Pattern : Observer and/or Command
+
+3. Bhargav Jain	
+	XP Value : Communication
+	Designing Pattern : Chain Of Responsibility
