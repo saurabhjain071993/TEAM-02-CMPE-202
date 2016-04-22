@@ -17,6 +17,10 @@ public class CarDriveLeftSideScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-				
+		this.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, this.transform.position.z - speed * Time.deltaTime);
+		if (this.transform.position.z < startingPoint.transform.position.z) {
+			this.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, endingPoint.transform.position.z);
+		}
+		
 	}
 }
