@@ -25,6 +25,16 @@ public class PlayerCharacterScript : MonoBehaviour {
 	private List<GameObject> strips;
 	int stripsCurrentIndex;
 
+	float jumpOffsetX = 1.5f;
+
+	public Vector3 JumpTargetLocation;
+	public float movingspeed = 100.0f;
+
+	private float midWayPointX;
+	public float jumpHeightIncrement = 2.0f;
+
+	private float initialPositionY;
+
 	//Use this for initialization
 	void Start () {
 		strips = new List<GameObject>();
@@ -46,6 +56,7 @@ public class PlayerCharacterScript : MonoBehaviour {
 		strips.Add (strip14); //strip14.name = "14";
 
 		stripsCurrentIndex = 0;
+		initialPositionY = this.transform.position.y;
 
 	}
 
@@ -59,9 +70,37 @@ public class PlayerCharacterScript : MonoBehaviour {
 				Jump(); // Simple call the Jump function when mouse button event is detected
 			}
 		}
-	}
+
+		if (isJumping) {
+			if(this.transform.position.x > JumpTargetLocation.x) {
+				this.transform.position = new Vector3(this.transform.position.x - (movingspeed * Time.deltaTime), this.transform.position.y, this.transform.position.z);
+				if(this.transform.position.x > midWayPointX) {
+					this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + jumpHeightIncrement * Time.deltaTime, this.transform.position.z);
+				}
+				else {
+				this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - jumpHeightIncrement * Time.deltaTime, this.transform.position.z);	
+				}
+				else {
+					isJumping = false;
+					this.transform.position = new Vector3(transform.position.x, initialPositionY, transform.position.z);
+				}
+			}
+		}
+	
 
 	void Jump() {
 		//With this function we will move the chicken to next strip
-		//I will update this function later
+		stripsCurrentIndex +=1;
+		GameObject nextStrip = strips [stripsCurrentIndex] as GameObject;
+		JumpTargetLocation = new Vector3 (nextStrip.transform.position.x - jumpOffsetX, transform.position.y,transform.position.z);
+		midWayPointX = JumpTargetLocation.x + ((this.transform.position.x - JumpTargetLocation.x)/2);
+
+		SpawnNewStrip();
+
 	}
+
+	void SpawnNewStrip() {
+		//This Function will create a new strip dynamically on each Jump
+	}
+
+}
