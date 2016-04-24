@@ -101,6 +101,5 @@ public class PlayerCharacterScript : MonoBehaviour {
 
 	void SpawnNewStrip() {
 		//This Function will create a new strip dynamically on each Jump
-	}
-
+		}
 }
