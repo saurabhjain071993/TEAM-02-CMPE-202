@@ -7,9 +7,9 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class ObjectAction : Observer
+public class ObjectActionObserver : Observer
 {
-    public ObjectAction(TagSubject tagSubject)
+    public ObjectActionObserver(TagSubject tagSubject)
         : base(tagSubject)
     {
 

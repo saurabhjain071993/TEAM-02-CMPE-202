@@ -347,7 +347,7 @@ public class PlayerCharacterScript : MonoBehaviour {
         tagSubject = new TagSubject();
         observer = new ScoreObserver(tagSubject);
         tagSubject.attach(observer);
-        observer = new ObjectAction(tagSubject);
+        observer = new ObjectActionObserver(tagSubject);
         tagSubject.attach(observer);
 
 		HidePausePanel ();
