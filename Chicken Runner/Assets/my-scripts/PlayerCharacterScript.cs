@@ -292,7 +292,9 @@ public class PlayerCharacterScript : MonoBehaviour
         midWayPointX = JumpTargetLocation.x + ((this.transform.position.x - JumpTargetLocation.x) / 2);
         mesh.transform.localEulerAngles = new Vector3(0, 0, 0);
 
-        SpawnNewStrip();
+        GameObject lastStrip = strips [strips.Count - 1] as GameObject;
+		StripCache.loadCache (poolOfStripsPrefabs, lastStrip);
+		strips.Add (StripCache.getStrip());
 
 
         // todo: move boundy up
