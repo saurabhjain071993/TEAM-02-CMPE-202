@@ -7,8 +7,6 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-
-
 public class CharacterActionChickenDuck:ICharacterAction
 {
 	public CharacterActionChickenDuck()
